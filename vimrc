@@ -41,7 +41,14 @@ augroup CursorLineOnlyInActiveWindow
 	autocmd WinLeave * setlocal nocursorline
 augroup END
 
-"mappings
+" automatically wrap lines for gitcommit message
+autocmd Filetype gitcommit call setGitOptions()
+function SetGitOptions()
+	setlocal formatoptions+=t
+	setlocal textwidth=72
+endfunction
+
+" Mappings
 let mapleader=" "
 
 map <c-x> :nohlsearch<CR>
