@@ -1,0 +1,28 @@
+[user]
+	name = nikhilreddydev
+	email = nikhilreddydev@gmail.com
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
+
+[alias]
+	gr = log --all --graph --decorate --oneline
+	ad = add -i
+	ci = commit
+	st = status -sb --show-stash
+	br = branch -a -vv
+	co = checkout
+	rem = remote
+	pl = pull
+	ph = push
+	fe = fetch
+	me = merge
+	re = rebase
+	h = help
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	pager = less -RFX
+[init]
+	defaultBranch = main
+[help]
+	autocorrect = 2

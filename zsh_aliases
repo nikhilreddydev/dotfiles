@@ -1,0 +1,25 @@
+# my own command to easily navigate between windows and wsl filesystem.
+alias cdwin="cd /mnt/c/Users/smart"
+
+# Basic aliases
+alias md="mkdir"
+alias ...="cd ../.."
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# tmux
+alias ta="tmux attach -t"
+alias tk="tmux kill-session -t"
+alias tn="tmux new -t"
+alias t="tmux"
+
+# vim
+alias v="vim"
+
+# helpers
+alias dc="cd"
