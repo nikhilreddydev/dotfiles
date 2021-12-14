@@ -1,7 +1,7 @@
 set nocompatible "works well
-set number	 "shows line numbers
+set number "shows line numbers
 set relativenumber "relative to current line
-set showcmd	  "show incomplete keybind
+set showcmd  "show incomplete keybind
 set laststatus=2  "always show statusline
 set incsearch
 set hlsearch
@@ -15,7 +15,6 @@ set list
 set listchars=tab:>--,trail:-
 set hidden
 syntax on
-set wildmode=longest,list
 set title
 set showmatch
 set scrolloff=5
@@ -33,6 +32,7 @@ set linebreak
 set nojoinspaces
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 set nowrapscan
+set path+=**
 
 " highlight current line, but only in active window
 augroup CursorLineOnlyInActiveWindow
@@ -42,7 +42,7 @@ augroup CursorLineOnlyInActiveWindow
 augroup END
 
 " automatically wrap lines for gitcommit message
-autocmd Filetype gitcommit call setGitOptions()
+autocmd Filetype gitcommit call SetGitOptions()
 function SetGitOptions()
 	setlocal formatoptions+=t
 	setlocal textwidth=72
@@ -51,8 +51,19 @@ endfunction
 " Mappings
 let mapleader=" "
 
-map <c-x> :nohlsearch<CR>
-map <c-z> :set rnu!<CR>
+map <C-x> :nohlsearch<CR>
+map <C-z> :set rnu!<CR>
+
+" ALT key maps
+execute "set <M-h> =\eh"
+map <M-h> ^
+execute "set <M-l> =\el"
+map <M-l> $
+
+execute "set <M-n> =\en"
+map <M-n> :lnext<CR>
+execute "set <M-p> =\ep"
+map <M-p> :lprevious<CR>
 
 " 1. Normal mode
 nmap Q <Nop>
@@ -65,12 +76,11 @@ nnoremap <silent> g* g*zz
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
 
-nnoremap H ^
-nnoremap L $
+nnoremap Y y$
 
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 nnoremap <Down> <Nop>
@@ -93,6 +103,12 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
 
+" 4. Terminal Job mode
+tnoremap <C-h> <C-\><C-N><C-W>h
+tnoremap <C-j> <C-\><C-N><C-W>j
+tnoremap <C-k> <C-\><C-N><C-W>k
+tnoremap <C-l> <C-\><C-N><C-W>l
+
 "-------------Plugins------------
 "1. Gruvbox
 autocmd vimenter * ++nested colorscheme gruvbox
@@ -110,19 +126,19 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified', ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'filetype', 'charvaluehex' ] ]
+      \              [ 'filetype' ] ]
       \ },
 	  \ 'component_function': {
 	  \ 	'gitbranch': 'FugitiveHead',
-	  \ },
-      \ 'component': {
-      \   'charvaluehex': '0x%B'
-      \ }
+      \ },
+	  \ 'component': {
+	  \		'charvaluehex': '0x%B',
+	  \ }
       \ }
 
 "3. easymotion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0 "Disable default mappings
+map ; <Plug>(easymotion-prefix)
 
 " Use uppercase target labels and type as a lower case
 let g:EasyMotion_use_upper = 1
@@ -130,40 +146,32 @@ let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 " type `l` and match `l`&`L`
 let g:EasyMotion_smartcase = 1
 
-" hjkl  s j k t / ? g/   -- EasyMotion
-map <Leader>h <Plug>(easymotion-linebackward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>l <Plug>(easymotion-lineforward)
-
-"4. ctrlp
-map <Leader>p :CtrlP<CR>
-map <Leader>; :CtrlPBuffer<CR>
-
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" hjkl  - EasyMotion
+map ;h <Plug>(easymotion-linebackward)
+map ;j <Plug>(easymotion-j)
+map ;k <Plug>(easymotion-k)
+map ;l <Plug>(easymotion-lineforward)
 
 
 "-------------Leader--------------
 "  <Space>  --  <leader><leader> toggles between buffers
 nnoremap <Leader><Leader> <c-^>
 
+" find file
+nnoremap <Leader>f :find 
+nnoremap <Leader>b :ls<CR>:b
+nnoremap <Leader>e :e 
+nnoremap <Leader>sb :ls<CR>:sb
+nnoremap <Leader>vb :ls<CR>:vert sb
+nnoremap <Leader>tb :ls<CR>:tab sb
+
 "  - |     --  Split with leader
 nnoremap <Leader>- :sp<CR>
 nnoremap <Leader>= :vsp<CR>
 
 " quickly edit and load conf files
-nnoremap <Leader>`z :vsp ~/.zshrc<CR>
-nnoremap <Leader>`v :vsp ~/.vimrc<CR>
+nnoremap <Leader>z :tabnew ~/.zshrc<CR>:tablast<CR>
+nnoremap <Leader>v :tabnew ~/.vimrc<CR>:tablast<CR>
 nnoremap <Leader>rv :source ~/.vimrc<CR>
 
 "  w wq q   --  Quick Save
@@ -184,3 +192,23 @@ nnoremap <Leader>8 8gt<CR>
 nnoremap <Leader>9 9gt<CR>
 nnoremap <Leader>n :tabnew<CR>
 nnoremap <Leader>x :tabclose<CR>
+
+" autocmd BufEnter term://* startinsert
+" autocmd BufLeave term://* stopinsert
+
+" function s:exec_on_term(command)
+" 	let g:terminal_buffer = get(g:, 'terminal_buffer', -1)
+" 	if g:terminal_buffer == -1 || !bufexists(g:terminal_buffer)
+" 		vert terminal
+" 		let g:terminal_buffer = bufnr('')
+" 		wincmd p
+" 	elseif bufwinnr(g:terminal_buffer) == -1
+" 		exec 'sb' . g:terminal_buffer
+" 		wincmd p
+" 	endif
+" 	call term_sendkeys(g:terminal_buffer, a:command . "\<cr>")
+" 	wincmd p
+" endfunction
+
+" command! -range ExeconTerm call s:exec_on_term(printf('make %s',
+"            \ expand('%:t:r')))
