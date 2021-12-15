@@ -52,7 +52,7 @@ endfunction
 let mapleader=" "
 
 map <C-x> :nohlsearch<CR>
-map <C-z> :set rnu!<CR>
+map <C-n> :set rnu!<CR>
 
 " ALT key maps
 execute "set <M-h> =\eh"
@@ -137,7 +137,7 @@ let g:lightline = {
       \ }
 
 "3. easymotion
-let g:EasyMotion_do_mapping = 0 "Disable default mappings
+let g:EasyMotion_do_mapping = 1 "Disable default mappings
 map ; <Plug>(easymotion-prefix)
 
 " Use uppercase target labels and type as a lower case
@@ -172,7 +172,7 @@ nnoremap <Leader>= :vsp<CR>
 " quickly edit and load conf files
 nnoremap <Leader>z :tabnew ~/.zshrc<CR>:tablast<CR>
 nnoremap <Leader>v :tabnew ~/.vimrc<CR>:tablast<CR>
-nnoremap <Leader>rv :source ~/.vimrc<CR>
+nnoremap <Leader>s :source ~/.vimrc<CR>
 
 "  w wq q   --  Quick Save
 nmap <Leader>w :w<CR>
