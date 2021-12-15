@@ -1,3 +1,4 @@
 *.[ao]
 *.sw[op]
 .vscode
+bin
