@@ -10,4 +10,5 @@ nmap <buffer> <Leader>df :TermdebugCommand  ./bin/<C-r>=expand('%:t:r')<CR> < ./
 let g:termdebug_wide = 1
 
 " snippets
-nnoremap \s :-1read $HOME/.vim/snippets/cppfcpp<CR>4jo
+nnoremap \s :-1read $HOME/.vim/snippets/cpp<CR>4jo
+nnoremap \sc :-1read $HOME/.vim/snippets/cfcpp<CR>3jo

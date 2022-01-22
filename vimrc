@@ -94,6 +94,10 @@ nnoremap <Up> <Nop>
 " inoremap <Right> <Nop>
 " inoremap <Up> <Nop>
 
+inoremap { {}<ESC>i
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+
 " 3. Visual mode
 vnoremap <Tab> >
 vnoremap <S-Tab> <
