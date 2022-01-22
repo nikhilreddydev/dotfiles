@@ -89,10 +89,10 @@ nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
 
 " 2. Insert mode
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <Up> <Nop>
+" inoremap <Down> <Nop>
+" inoremap <Left> <Nop>
+" inoremap <Right> <Nop>
+" inoremap <Up> <Nop>
 
 " 3. Visual mode
 vnoremap <Tab> >
@@ -126,7 +126,7 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified', ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'filetype' ] ]
+      \              [ 'filetype', 'charvaluehex' ] ]
       \ },
 	  \ 'component_function': {
 	  \ 	'gitbranch': 'FugitiveHead',
@@ -137,20 +137,20 @@ let g:lightline = {
       \ }
 
 "3. easymotion
-let g:EasyMotion_do_mapping = 1 "Disable default mappings
-map ; <Plug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0 "Disable default mappings
+" map ; <Plug>(easymotion-prefix)
 
-" Use uppercase target labels and type as a lower case
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-" type `l` and match `l`&`L`
-let g:EasyMotion_smartcase = 1
+" " Use uppercase target labels and type as a lower case
+" let g:EasyMotion_use_upper = 1
+" let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+" " type `l` and match `l`&`L`
+" let g:EasyMotion_smartcase = 1
 
-" hjkl  - EasyMotion
-map ;h <Plug>(easymotion-linebackward)
-map ;j <Plug>(easymotion-j)
-map ;k <Plug>(easymotion-k)
-map ;l <Plug>(easymotion-lineforward)
+" " hjkl  - EasyMotion
+" map ;h <Plug>(easymotion-linebackward)
+" map ;j <Plug>(easymotion-j)
+" map ;k <Plug>(easymotion-k)
+" map ;l <Plug>(easymotion-lineforward)
 
 
 "-------------Leader--------------
@@ -193,22 +193,6 @@ nnoremap <Leader>9 9gt<CR>
 nnoremap <Leader>n :tabnew<CR>
 nnoremap <Leader>x :tabclose<CR>
 
-" autocmd BufEnter term://* startinsert
-" autocmd BufLeave term://* stopinsert
-
-" function s:exec_on_term(command)
-" 	let g:terminal_buffer = get(g:, 'terminal_buffer', -1)
-" 	if g:terminal_buffer == -1 || !bufexists(g:terminal_buffer)
-" 		vert terminal
-" 		let g:terminal_buffer = bufnr('')
-" 		wincmd p
-" 	elseif bufwinnr(g:terminal_buffer) == -1
-" 		exec 'sb' . g:terminal_buffer
-" 		wincmd p
-" 	endif
-" 	call term_sendkeys(g:terminal_buffer, a:command . "\<cr>")
-" 	wincmd p
-" endfunction
-
-" command! -range ExeconTerm call s:exec_on_term(printf('make %s',
-"            \ expand('%:t:r')))
+" change cursor type in insert mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
