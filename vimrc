@@ -95,6 +95,7 @@ nnoremap <Up> <Nop>
 " inoremap <Up> <Nop>
 
 inoremap { {}<ESC>i
+inoremap {<CR> {<CR>}<ESC>ko<TAB>
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 
