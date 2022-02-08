@@ -11,4 +11,4 @@ let g:termdebug_wide = 1
 
 " snippets
 nnoremap \s :-1read $HOME/.vim/snippets/cpp<CR>4jo
-nnoremap \sc :-1read $HOME/.vim/snippets/cfcpp<CR>3jo
+nnoremap \sc :-1read $HOME/.vim/snippets/cfcpp<CR>24jzzo
