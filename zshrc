@@ -43,6 +43,7 @@ source ~/.zsh_functions.sh
 export EDITOR=vim
 export LESS=-R
 export PS1
+export TIME="\n%e Time in seconds\n%M Memory in kilobytes"
 
 #use vim style navigation
 bindkey -M menuselect 'h' vi-backward-char
