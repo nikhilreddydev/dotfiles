@@ -88,6 +88,8 @@ nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
 
+nnoremap <TAB> %
+
 " 2. Insert mode
 " inoremap <Down> <Nop>
 " inoremap <Left> <Nop>
@@ -201,3 +203,5 @@ nnoremap <Leader>x :tabclose<CR>
 " change cursor type in insert mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+
+command Cpp :tabnew ~/.vim/ftplugin/cpp.vim
