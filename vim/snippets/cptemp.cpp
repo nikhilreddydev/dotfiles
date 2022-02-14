@@ -30,7 +30,11 @@ int main() {
 	cin >> t;
 	while(t--) {
 		solve();
+<<<<<<< HEAD
 		#ifdef MDB
+=======
+		#ifdef LOCAL
+>>>>>>> b7af638c7a1af41aeb0a235fb0502c1414b55b08
 		cout << "____________________\n";
 		#endif
 	}
