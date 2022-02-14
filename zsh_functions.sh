@@ -12,22 +12,24 @@ cf() {
 	fi
 
 	make clean
+	echo "Enter input for first problem?"
+	cat > a.in
 
 	:>a.cpp
-	:>a.in
 	:>b.cpp
 	:>b.in
 	:>c.cpp
 	:>c.in
 
-	vim -p a.in b.in c.in -c "startinsert"
+	vim -p a.cpp b.cpp c.cpp -c ":vsp a.in" -c ":sp a.out" -c ":tabnext" -c ":vsp b.in" -c ":sp b.out" -c ":tabnext" -c ":vsp c.in" -c ":sp c.out" -c ":tabfirst"
 }
 
 te() {
 	mcd ~/test
 	make clean
+	echo "Enter test case?"
+	cat > sol.in
 	:>sol.cpp
-	:>sol.in
 
-	vim sol.cpp sol.in
+	vim sol.cpp -c ":vsp sol.in" -c ":sp sol.out"
 }

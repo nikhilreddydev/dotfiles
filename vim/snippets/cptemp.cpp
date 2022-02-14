@@ -5,13 +5,22 @@
 #define sz(a) ((int)((a).size()))
 #define all(cont) (cont).begin(), (cont).end()
 #define pb push_back
-#define mod (int)1e9+7
+#define ppb pop_back
+#define ff first
+#define ss second
 #define nl '\n'
 #define sp ' '
-#define vi vector<int>
-#define ll long long
-#define ld long double
+
 using namespace std;
+using ll = long long;
+using ld = long double;
+using vi = vector<int>;
+
+#ifdef MDB
+#include "include/mdb.h"
+#else
+#define mdb(x)
+#endif
 
 void solve();
 int main() {
@@ -21,6 +30,9 @@ int main() {
 	cin >> t;
 	while(t--) {
 		solve();
+		#ifdef MDB
+		cout << "____________________\n";
+		#endif
 	}
 	return 0;
 }
