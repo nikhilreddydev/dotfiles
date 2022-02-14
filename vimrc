@@ -82,11 +82,15 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+map <ESC>[1;5D <C-right>
+nnoremap <C-right> 10<C-w><
+map <ESC>[1;5C <C-left>
+nnoremap <C-left> 10<C-w>>
 
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-nnoremap <Up> <Nop>
+" nnoremap <Down> <Nop>
+" nnoremap <Left> <Nop>
+" nnoremap <Right> <Nop>
+" nnoremap <Up> <Nop>
 
 nnoremap <TAB> %
 
@@ -177,8 +181,8 @@ nnoremap <Leader>- :sp<CR>
 nnoremap <Leader>= :vsp<CR>
 
 " quickly edit and load conf files
-nnoremap <Leader>z :tabnew ~/.zshrc<CR>:tablast<CR>
-nnoremap <Leader>v :tabnew ~/.vimrc<CR>:tablast<CR>
+nnoremap <Leader>z :tabnew ~/.zshrc<CR>:tabnext<CR>
+nnoremap <Leader>v :tabnew ~/.vimrc<CR>:tabnext<CR>
 nnoremap <Leader>s :source ~/.vimrc<CR>
 
 "  w wq q   --  Quick Save
@@ -204,4 +208,6 @@ nnoremap <Leader>x :tabclose<CR>
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+" custom commands
 command Cpp :tabnew ~/.vim/ftplugin/cpp.vim
+command Mdb :30,$s/.*mdb.*\n//gc

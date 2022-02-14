@@ -1,3 +1,6 @@
-packadd termdebug
-nmap <buffer> <Leader>r :vert term make %:t<CR>
-nmap <buffer> <Leader>d :TermdebugCommand ./bin/<C-r>=expand('%:t:r')<CR> < %:t<CR>
+nmap <buffer> <F10> :w<CR>:!make %<.in<CR><CR>
+imap <buffer> <F10> <ESC>:<C-u>:w<CR>:!make %<.in<CR><CR>
+
+" auto reload output files
+set autoread
+autocmd Focusgained,BufEnter * :silent! !
