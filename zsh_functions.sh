@@ -33,3 +33,7 @@ te() {
 
 	vim sol.cpp -c ":vsp sol.in" -c ":sp sol.out"
 }
+
+virtualenv_info() {
+	[ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+}

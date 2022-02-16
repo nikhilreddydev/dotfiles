@@ -23,12 +23,15 @@ stty -ixon
 # git repo details on prompt
 . ~/.git-prompt.sh
 autoload -U colors && colors
-precmd () {  __git_ps1 "%{${fg[cyan]}%}%2~%{$reset_color%}" " %(?.😁 .%(!..😔) " " [%s]" }
+precmd () {  __git_ps1 "%{$fg[green]%}$(virtualenv_info)%{$reset_color%}%{${fg[cyan]}%}%2~%{$reset_color%}" " %(?.😁 .%(!..😔) " " [%s]" }
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=1
+
+# virtual env python
+# PROMPT+='%{$fg[green]%}$(virtualenv_info)%{$reset_color%}%'
 
 # source aliases
 source ~/.zsh_aliases
