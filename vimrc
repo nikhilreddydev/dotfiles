@@ -28,11 +28,13 @@ set smartcase
 filetype plugin on
 filetype indent on
 set autoindent
+set cindent
 set linebreak
 set nojoinspaces
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 set nowrapscan
 set path+=**
+set display+=lastline "no @ @ @ lines in bottom
 
 " highlight current line, but only in active window
 augroup CursorLineOnlyInActiveWindow
@@ -181,8 +183,8 @@ nnoremap <Leader>- :sp<CR>
 nnoremap <Leader>= :vsp<CR>
 
 " quickly edit and load conf files
-nnoremap <Leader>z :tabnew ~/.zshrc<CR>:tabnext<CR>
-nnoremap <Leader>v :tabnew ~/.vimrc<CR>:tabnext<CR>
+nnoremap <Leader>z :tabnew ~/.zshrc<CR>
+nnoremap <Leader>v :tabnew ~/.vimrc<CR>
 nnoremap <Leader>s :source ~/.vimrc<CR>
 
 "  w wq q   --  Quick Save
