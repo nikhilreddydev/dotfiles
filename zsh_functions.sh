@@ -24,8 +24,8 @@ cf() {
 	vim -p a.cpp b.cpp c.cpp -c ":vsp a.in" -c ":sp a.out" -c ":tabnext" -c ":vsp b.in" -c ":sp b.out" -c ":tabnext" -c ":vsp c.in" -c ":sp c.out" -c ":tabfirst"
 }
 
-te() {
-	mcd ~/test
+help() {
+	mcd ~/help
 	make clean
 	echo "Enter test case?"
 	cat > sol.in
