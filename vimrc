@@ -20,8 +20,8 @@ set showmatch
 set scrolloff=5
 set timeout
 set ttimeout
-set timeoutlen=1000
-set ttimeoutlen=5
+set timeoutlen=500
+set ttimeoutlen=2
 set lazyredraw
 set ignorecase
 set smartcase
@@ -84,15 +84,17 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" move windows to left and right
 map <ESC>[1;5D <C-right>
 nnoremap <C-right> 10<C-w><
 map <ESC>[1;5C <C-left>
 nnoremap <C-left> 10<C-w>>
 
-" nnoremap <Down> <Nop>
-" nnoremap <Left> <Nop>
-" nnoremap <Right> <Nop>
-" nnoremap <Up> <Nop>
+nnoremap <Down> :echoe "Stupid! use j"<CR>
+nnoremap <Right> :echoe "Stupid! use l"<CR>
+nnoremap <Up> :echoe "Stupid! use k"<CR>
+nnoremap <Left> :echoe "Stupid! use h"<CR>
 
 nnoremap <TAB> %
 
@@ -102,7 +104,7 @@ nnoremap <TAB> %
 " inoremap <Right> <Nop>
 " inoremap <Up> <Nop>
 
-inoremap { {}<ESC>i
+inoremap { {}<Left>
 inoremap {<CR> {<CR>}<ESC>ko
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
@@ -148,23 +150,6 @@ let g:lightline = {
 	  \		'charvaluehex': '0x%B',
 	  \ }
       \ }
-
-"3. easymotion
-let g:EasyMotion_do_mapping = 0 "Disable default mappings
-" map ; <Plug>(easymotion-prefix)
-
-" " Use uppercase target labels and type as a lower case
-" let g:EasyMotion_use_upper = 1
-" let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-" " type `l` and match `l`&`L`
-" let g:EasyMotion_smartcase = 1
-
-" " hjkl  - EasyMotion
-" map ;h <Plug>(easymotion-linebackward)
-" map ;j <Plug>(easymotion-j)
-" map ;k <Plug>(easymotion-k)
-" map ;l <Plug>(easymotion-lineforward)
-
 
 "-------------Leader--------------
 "  <Space>  --  <leader><leader> toggles between buffers

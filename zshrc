@@ -46,7 +46,7 @@ source ~/.zsh_functions.sh
 export EDITOR=vim
 export LESS=-R
 export PS1
-export TIME="\n%e Time in seconds\n%M Memory in kilobytes"
+export TIME="\n%C\n%e Time in seconds\n%M Memory in kilobytes"
 
 #use vim style navigation
 bindkey -M menuselect 'h' vi-backward-char
@@ -67,7 +67,7 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 OLD=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/":/mnt/c/Program Files/Git/cmd"":/mnt/c/Program Files (x86)/mmix":/mnt/c/Users/smart/AppData/Local/Microsoft/WindowsApps":/mnt/c/Users/smart/AppData/Local/Programs/Microsoft VS Code/bin"
 
 export PATH=$(/usr/bin/getconf PATH)
-export PATH=":/mnt/c/Users/smart/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
+export PATH=":$HOME/bin/jdk-17.0.2/bin:/mnt/c/Users/smart/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
