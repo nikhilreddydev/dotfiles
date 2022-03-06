@@ -11,17 +11,16 @@ cf() {
 		mcd ~/codeforces
 	fi
 
-	make clean
 	echo "Enter input for first problem?"
-	cat > a.in
+	cat > any.in
 
 	:>a.cpp
 	:>b.cpp
-	:>b.in
 	:>c.cpp
-	:>c.in
+	:>d.cpp
+	:>e.cpp
 
-	vim -p a.cpp b.cpp c.cpp -c ":vsp a.in" -c ":sp a.out" -c ":tabnext" -c ":vsp b.in" -c ":sp b.out" -c ":tabnext" -c ":vsp c.in" -c ":sp c.out" -c ":tabfirst"
+	vim a.cpp b.cpp c.cpp d.cpp e.cpp -c ":vsp any.in" -c ":sp any.out"
 }
 
 help() {
