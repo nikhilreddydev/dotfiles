@@ -1,4 +1,4 @@
-set makeprg=make\ %:t
+set makeprg=make\ %<
 " packadd termdebug
 
 " compile and run
