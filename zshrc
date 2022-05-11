@@ -70,6 +70,8 @@ OLD=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr
 export PATH=$(/usr/bin/getconf PATH)
 # add my local bin path and java bin path.
 export PATH=":/usr/local/bin:/usr/local/bin/jdk-17.0.2/bin:/mnt/c/Users/smart/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
+# add path to /usr/sbin/service
+export PATH=":/usr/sbin/:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
